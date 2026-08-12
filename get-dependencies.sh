@@ -12,7 +12,7 @@ pacman -Syu --noconfirm bzip2 \
   sdl2-compat 	\
   libvpx 		\
   libwebp 		\
-  zmusic
+  zmusic    \  
   waylandpp
 
 echo "Installing debloated packages..."
