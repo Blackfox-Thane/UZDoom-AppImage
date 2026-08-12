@@ -6,7 +6,13 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm bzip2 \
+  openmp 		\
+  openal 		\
+  sdl2-compat 	\
+  libvpx 		\
+  libwebp 		\
+  waylandpp
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -16,6 +22,31 @@ get-debloated-pkgs --add-common --prefer-nano
 #make-aur-package PACKAGENAME
 
 # If the application needs to be manually built that has to be done down here
+echo "Making UZDoom..."
+echo "---------------------------------------------------------------"
+DIR="UZDoom"
+REPO_URL="https://github.com/UZDoom/UZDoom.git"
+
+if [ -d "$DIR" ]; then
+  cd "$DIR" && git pull
+else
+  git clone "$REPO_URL" "$DIR"
+fi
+
+if [ -d "$DIR" ]; then
+  cd "$DIR/build"
+else
+  mkdir -p $DIR/build
+fi
+
+cmake                                \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo  \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DBUILD_SHARED_LIBS=OFF            \
+  -G Ninja                           \
+  ..
+
+cmake --build .
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #
