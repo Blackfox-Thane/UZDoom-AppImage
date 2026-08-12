@@ -9,7 +9,7 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm bzip2 \
   openmp 		\
   openal 		\
-  sdl2-compat 	\
+  sdl2     	\
   libvpx 		\
   libwebp 		\
   waylandpp
