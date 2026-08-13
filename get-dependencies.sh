@@ -6,12 +6,13 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm bzip2 \
+pacman -Syu --noconfirm gcc \ 
+  bzip2     \ 
   openmp 		\
   openal 		\
   sdl2     	\
   libvpx 		\
-  libwebp 		\
+  libwebp 	\
   waylandpp
 
 echo "Installing debloated packages..."
