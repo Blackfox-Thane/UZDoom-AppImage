@@ -6,8 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm gcc \ 
-  bzip2     \ 
+pacman -Syu --noconfirm bzip2 \ 
   openmp 		\
   openal 		\
   sdl2     	\
