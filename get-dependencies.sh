@@ -49,6 +49,11 @@ cmake                                \
 
 cmake --build .
 
+cp -v $DIR/build/uzdoom ./AppDir/bin
+cp -v $DIR/build/fm_banks ./AppDIr/bin
+cp -v $DIR/build/soundfonts ./AppDir/bin
+cp -v $DIR/build/*.pk3 ./AppDir/bin
+
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
 #
 # if [ "${DEVEL_RELEASE-}" = 1 ]; then
