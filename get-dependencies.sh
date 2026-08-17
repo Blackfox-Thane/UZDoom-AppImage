@@ -34,6 +34,7 @@ else
 fi
 
 if [ -d "$DIR" ]; then
+  mkdir -p $DIR/build
   cd "$DIR/build"
 else
   mkdir -p $DIR/build
